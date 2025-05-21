@@ -160,8 +160,8 @@ const DrawerFilters = () => {
 
 const AnimatedChip = ({ isSelected, onPress, label }) => {
   const scale = useSharedValue(1);
-  const backgroundColor = useSharedValue(
-    isSelected ? theme.colors.primary.main : theme.colors.white,
+  const borderColor = useSharedValue(
+    isSelected ? theme.colors.secondary.main : theme.colors.border,
   );
   const textColor = useSharedValue(
     isSelected ? theme.colors.white : theme.colors.text,
@@ -169,7 +169,7 @@ const AnimatedChip = ({ isSelected, onPress, label }) => {
 
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ scale: withTiming(scale.value, { duration: 150 }) }],
-    backgroundColor: withTiming(backgroundColor.value, { duration: 150 }),
+    borderColor: withTiming(borderColor.value, { duration: 150 }),
   }));
 
   const textStyle = useAnimatedStyle(() => ({
@@ -178,10 +178,9 @@ const AnimatedChip = ({ isSelected, onPress, label }) => {
 
   const handlePress = () => {
     scale.value = 1.1;
-    backgroundColor.value = isSelected
-      ? theme.colors.white
-      : theme.colors.primary.main;
-    textColor.value = isSelected ? theme.colors.text : theme.colors.white;
+    borderColor.value = isSelected
+      ? theme.colors.border
+      : theme.colors.secondary.main;
 
     setTimeout(() => {
       scale.value = 1;
@@ -218,7 +217,6 @@ const styles = StyleSheet.create({
   },
   chipFilter: {
     flexDirection: 'row',
-    borderColor: '#ececec',
     borderWidth: 1,
     borderRadius: 100,
     padding: 10,

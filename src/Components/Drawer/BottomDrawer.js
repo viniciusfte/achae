@@ -23,7 +23,7 @@ const BottomDrawer = forwardRef(
       title,
       closeIcon,
       children,
-      expandedHeight = screenHeight * 0.8,
+      expandedHeight = screenHeight * 0.7,
       retractHeight = screenHeight * 0.5,
       style,
     },

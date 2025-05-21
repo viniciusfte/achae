@@ -9,6 +9,7 @@ const theme = {
     text: '#000D23',
     white: '#FFFFFF',
     black: '#000000',
+    border: '#ECECEC',
   },
   fonts: {
     regular: 'Roboto-Regular',
